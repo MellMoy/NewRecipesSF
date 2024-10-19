@@ -2,9 +2,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
-import Categories from './Categories';
-import Recipes from './Recipes';
-import RecipeDetail from './RecipeDetail';
+import Categories from './Categories.jsx';
+import Recipes from './Recipes.jsx';
+import RecipeDetail from './RecipeDetail.jsx';
 
 function App() {
   return (
