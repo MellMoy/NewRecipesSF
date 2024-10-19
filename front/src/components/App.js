@@ -11,10 +11,10 @@ function App() {
     
       <Router>
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/categories" component={Categories} />
-          <Route path="/recipes/:category" component={Recipes} />
-          <Route path="/recipes/:id" component={RecipeDetail} />
+          <Route path="/" exact component={<Home/>} />
+          <Route path="/categories" component={<Categories/>} />
+          <Route path="/recipes/:category" component={<Recipes/>} />
+          <Route path="/recipes/:id" component={<RecipeDetail/>} />
         </Routes>
       </Router>
       
