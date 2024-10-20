@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function Category() {
-  const { category } = useParams();
+  const category  = useParams();
   const [dishes, setDishes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -18,8 +18,8 @@ function Category() {
         console.error(err);
         setLoading(false);
       });
-  }, [category]);
 
+  }, [category]);
   if (loading) {
     return <div>Загрузка...</div>;
   }

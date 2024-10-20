@@ -8,7 +8,6 @@ import RecipeDetail from './RecipeDetail.jsx';
 
 function App() {
   return (
-    
       <Router>
         <Routes>
           <Route path="/" exact element={<Home/>} />
@@ -17,7 +16,6 @@ function App() {
           <Route path="/recipes/:id" element={<RecipeDetail/>} />
         </Routes>
       </Router>
-      
     );
 }
 
