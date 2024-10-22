@@ -65,6 +65,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # или другой адрес фронтенда
     "http://127.0.0.1:8000",
+    "http://192.168.0.113:3000"
 ]
 CORS_URLS_REGEX = r'^/api/.*$'
 

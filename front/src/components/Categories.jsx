@@ -29,7 +29,7 @@ function Category() {
       <h1>Категории блюд</h1>
       <ul>
         {dishes.map((name) => (
-          <li key={name.id}>
+          <li key={dish.id}>
             <Link to={`/recipes/${name.id}`}>{name.name}</Link>
           </li>
         ))}
