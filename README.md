@@ -33,12 +33,12 @@ pip install -r requirements.txt
 python manage.py runserver
 
 API проекта будет доступно по адресам: 
-    path('api/', include('api.urls')) 
-    path('api/openapi', include('api.urls'))
-    path('api/swagger-ui/', include('api.urls')) 
-    path('api/recipe/', include('api.urls'))
-    path('api/recipe/<id>/', include ('api.urls'))
-    path('api/category/', include('api.urls')) 
+    path('api/', include('api.urls')), 
+    path('api/openapi', include('api.urls')),
+    path('api/swagger-ui/', include('api.urls')) ,
+    path('api/recipe/', include('api.urls')),
+    path('api/recipe/<id>/', include ('api.urls')),
+    path('api/category/', include('api.urls')) ,
 
 
 ## Установка и запуск среды разработки frontend React + Webpack
