@@ -24,7 +24,7 @@ Backend:
 ## Установка и запуск среды разработки backend Django
 
 В виртуальное окружение venv клонируем репозиторий: 
-https://github.com/MellMoy/SF-Recipes-Hw-04-.git
+git clone https://github.com/MellMoy/NewRecipesSF
 
 Затем инсталлируем необходимые для работы проекта пакеты:
 pip install -r requirements.txt
