@@ -14,8 +14,8 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home/>} />
             <Route path="/categories" element={<Categories/>} />
-            <Route path="/recipes/:category" element={<Recipes/>} />
-            <Route path="/recipes/:id" element={<RecipeDetail/>} />
+            <Route path="/categories/recipes/" element={<RecipeDetail/>} />
+            {/* <Route path="/recipes/:id" element={<RecipeDetail/>} /> */}
             <Route path="*" element={<NotFound />} /> 
           </Routes>
         </Router>

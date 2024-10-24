@@ -6,37 +6,33 @@ import axios from 'axios';
 const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchRecipe = async () => {
-      try {
-        const response = await axios.get(`https://api.example.com/recipes/${id}`);
-        setRecipe(response.data);
-      } catch (error) {
-        console.error("Ошибка при загрузке рецепта:", error);
-      }
-    };
-
-    fetchRecipe();
-  }, [id]);
+    axios.get(`http://127.0.0.1:8000/api/category/recipes/`)
+      .then(res => {
+        setRecipe(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+    },[id]);
 
   if (!recipe) return <div>Загрузка...</div>;
 
   return (
-    <div>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.description}</p>
-      <h2>Ингредиенты:</h2>
-      <ul>
-        {recipe.ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-      </ul>
-      <h2>Приготовление:</h2>
-      <p>{recipe.instructions}</p>
-      <Link to={`/recipes/${recipe.category}`}>Назад к рецептам</Link>
-    </div>
-  );
-};
+      <div>
+        <h1>Рецепты</h1>
+        <div>
+          {recipe.map((rec) => (
+            <Link key={rec.id}>{rec.name}</Link>
+          ))}
+        </div>
+        <Link to="/">Назад на главную</Link>
+      </div>
+    );
+  };
 
 export default RecipeDetail;
