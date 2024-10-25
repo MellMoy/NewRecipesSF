@@ -29,7 +29,7 @@ function Category() {
       <h1>Категории на выбор</h1>
       <div>
         {dishes.map((dish) => (
-          <Link key={dish.id} to={`/category/${dish.categoryType}`}>
+          <Link key={dish.id} to={`/category/:categoryType/ ${dish.categoryType}`}>
           {dish.categoryType}
         </Link>
         ))}

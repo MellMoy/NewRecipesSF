@@ -16,7 +16,7 @@ function App() {
             <Route path="/" exact element={<Home/>} />
             <Route path="/categories" element={<Categories/>} />
             <Route path="/categories/recipes/" element={<RecipeDetail/>} />
-            <Route path="/category/" element={<CategoryDetails/>} />
+            <Route path="/category/:categoryType" element={<CategoryDetails/>} />
             <Route path="*" element={<NotFound />} /> 
           </Routes>
         </Router>
