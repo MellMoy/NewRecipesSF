@@ -1,11 +1,12 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Home from './Home.jsx';
 import Categories from './Categories.jsx';
-import Recipes from './Recipes.jsx';
 import RecipeDetail from './RecipeDetail.jsx';
 import NotFound from './NotFound.jsx';
+import CategoryDetails from './CategoryDetails.jsx';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <Route path="/" exact element={<Home/>} />
             <Route path="/categories" element={<Categories/>} />
             <Route path="/categories/recipes/" element={<RecipeDetail/>} />
-            {/* <Route path="/recipes/:id" element={<RecipeDetail/>} /> */}
+            <Route path="/category/" element={<CategoryDetails/>} />
             <Route path="*" element={<NotFound />} /> 
           </Routes>
         </Router>
