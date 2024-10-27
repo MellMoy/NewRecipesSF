@@ -25,18 +25,18 @@ function Category() {
   }
 
   return (
-    <div>
-      <h1>Категории на выбор</h1>
-      <div>
-        {dishes.map((dish) => (
-          <Link key={dish.id} to={`/category/:categoryType/ ${dish.categoryType}`}>
-          {dish.categoryType}
-        </Link>
-        ))}
-      </div>
-      <Link to="/">Назад на главную</Link>
-    </div>
-  );
+		<div>
+			<h1>Категории на выбор</h1>
+			<div>
+				{dishes.map(dish => (
+					<Link key={dish.id} to={`/category/${dish.categoryType}`}>
+						{dish.categoryType}
+					</Link>
+				))}
+			</div>
+			<Link to='/'>Назад на главную</Link>
+		</div>
+	);
 };
 
 export default Category;
