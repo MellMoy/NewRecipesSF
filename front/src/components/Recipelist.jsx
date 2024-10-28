@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-const RecipeList = () => {
-    const [recipes, setRecipes] = useState([]);
+const RecipeDetail = () => {
+    const { id } = useParams(); // Получаем ID из URL
+    const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchRecipes = async () => {
+        const fetchRecipe = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/category/recipes/');
+                const response = await fetch(`http://127.0.0.1:8000/api/recipe/${id}/`); // Предполагается, что API поддерживает этот маршрут
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                setRecipes(data); // Предполагается, что data - это массив рецептов
+                setRecipe(data); // Предполагается, что data - это объект рецепта
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -22,8 +23,8 @@ const RecipeList = () => {
             }
         };
 
-        fetchRecipes();
-    }, []);
+        fetchRecipe();
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -33,25 +34,17 @@ const RecipeList = () => {
         return <div>Error: {error}</div>;
     }
 
+    if (!recipe) {
+        return <div>No recipe found</div>;
+    }
+
     return (
         <div>
-            <h1>Recipes</h1>
-            <ul>
-                {recipes.map((recipe) => (
-                    <li key={recipe.id}>
-                        <h2>{recipe.name}</h2>
-                        <p>{recipe.description}</p>
-                        
-                    </li>
-                    
-                ))}
-                <Link to='/'>Назад на главную</Link>
-            </ul>
+            <h1>{recipe.name}</h1>
+            <p>{recipe.description}</p>
+            <Link to='/'>Назад на главную</Link>
         </div>
     );
 };
 
-export default RecipeList;
-
-
-
+export default RecipeDetail;
