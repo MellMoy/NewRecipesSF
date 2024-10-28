@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useParams, Link} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function CategoryDetails() {
 	const { categoryType } = useParams(); // Достаем параметр категории из URL
@@ -22,7 +22,6 @@ function CategoryDetails() {
 				setLoading(false);
 			});
 	}, [categoryType]);
-	
 
 	if (loading) {
 		return <div>Загрузка...</div>;
@@ -33,11 +32,12 @@ function CategoryDetails() {
 			<h1>Блюда из категории: {categoryType}</h1>
 			<ul>
 				{dishes.map(dish => (
-					<li key={dish.id}>{dish.name}{dish.dishes}</li>
-					
+					<li key={dish.id}>
+						<Link to={`/recipes/${dish.id}`}>{dish.name}</Link>
+					</li>
 				))}
-				<Link to='/'>Назад на главную</Link>
 			</ul>
+			<Link to='/'>Назад на главную</Link>
 		</div>
 	);
 }
