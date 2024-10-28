@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 
 function CategoryDetails() {
 	const { categoryType } = useParams(); // Достаем параметр категории из URL
@@ -9,7 +9,7 @@ function CategoryDetails() {
 
 	useEffect(() => {
 		axios
-			.get(`http://127.0.0.1:8000/api/category/categories/`)
+			.get(`http://127.0.0.1:8000/api/category/recipes/`)
 			.then(res => {
 				const filteredDishes = res.data.filter(
 					dish => dish.categoryType === categoryType
@@ -22,6 +22,7 @@ function CategoryDetails() {
 				setLoading(false);
 			});
 	}, [categoryType]);
+	
 
 	if (loading) {
 		return <div>Загрузка...</div>;
@@ -33,7 +34,9 @@ function CategoryDetails() {
 			<ul>
 				{dishes.map(dish => (
 					<li key={dish.id}>{dish.name}{dish.dishes}</li>
+					
 				))}
+				<Link to='/'>Назад на главную</Link>
 			</ul>
 		</div>
 	);
