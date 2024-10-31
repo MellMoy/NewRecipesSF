@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div>
-      <h1>Главная страница</h1>
+      <h1>Сайт с вашиби любимыми блюдами</h1>
+      <button>
       <Link to="/categories">Перейти к категориям блюд</Link>
+      </button>
     </div>
   );
 };

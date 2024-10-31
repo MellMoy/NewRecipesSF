@@ -37,7 +37,9 @@ function CategoryDetails() {
 					</li>
 				))}
 			</ul>
-			<Link to='/'>Назад на главную</Link>
+			<button>
+      <Link to="/categories">К категориям</Link>
+      </button>
 		</div>
 	);
 }

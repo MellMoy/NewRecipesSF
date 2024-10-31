@@ -1,54 +1,51 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const RecipeList = () => {
-    const [recipes, setRecipes] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { id } = useParams(); // Получаем ID рецепта из URL
+        const [recipe, setRecipe] = useState(null);
+        const [loading, setLoading] = useState(true);
+        const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchRecipes = async () => {
-            try {
-                const response = await fetch('http://127.0.0.1:8000/api/category/recipes/');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+        useEffect(() => {
+            const fetchRecipe = async () => {
+                try {
+                    const response = await axios.get(
+                        `http://127.0.0.1:8000/api/recipes/${id}`
+                    );
+                    setRecipe(response.data); // Предполагается, что API возвращает один объект рецепта
+                } catch (error) {
+                    setError(error.message);
+                } finally {
+                    setLoading(false);
                 }
-                const data = await response.json();
-                setRecipes(data); // Предполагается, что data - это массив рецептов
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
+            };
 
-        fetchRecipes();
-    }, []);
+            fetchRecipe();
+        }, [id]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+        if (loading) {
+            return <div>Загрузка...</div>;
+        }
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+        if (error) {
+            return <div>Ошибка: {error}</div>;
+        }
 
-    return (
-        <div>
-            <h1>Recipes</h1>
-            <ul>
-                {recipes.map((recipe) => (
-                    <li key={recipe.id}>
-                        <h2>{recipe.name}</h2>
-                        <p>{recipe.description}</p>
-                        
-                    </li>
-                    
-                ))}
-                <Link to='/'>Назад на главную</Link>
-            </ul>
-        </div>
-    );
+        if (!recipe) {
+            return <div>Рецепт не найден</div>;
+        }
+
+        return (
+            <div>
+                <h1>{recipe.name}</h1>
+                <p>{recipe.description}</p>
+                <button>
+      <Link to="/categories">Перейти к категориям блюд</Link>
+      </button>
+            </div>
+        );
 };
 
 export default RecipeList;

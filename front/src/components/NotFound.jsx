@@ -9,7 +9,9 @@ function NotFound() {
     <div className="not-found">
       <h1>404: Страница не найдена</h1>
       <p>Страница, которую вы ищете, не существует.</p>
-      <Link to="/">Назад на главную</Link>
+      <button>
+      <Link to="/categories">Главная страница</Link>
+      </button>
     </div>
   );
 }
