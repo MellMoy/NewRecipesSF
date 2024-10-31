@@ -39,11 +39,15 @@ const RecipeList = () => {
 
         return (
             <div>
-                <h1>{recipe.name}</h1>
-                <p>{recipe.description}</p>
-                <button>
-      <Link to="/categories">Перейти к категориям блюд</Link>
-      </button>
+                <h1 className='category'>{recipe.name}</h1>
+                    <div className="centered-column">
+                    <span style={{ whiteSpace: "pre-line" }}>{recipe.description}</span>
+                </div>  
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '30vh' }}>
+  <button type="button" className="btn btn-info">
+    <Link to="/categories" style={{ color: 'inherit', textDecoration: 'none' }}>Перейти к категориям блюд</Link>
+  </button>
+</div>
             </div>
         );
 };

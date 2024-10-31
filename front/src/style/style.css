@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Wet+Paint&display=swap');
+
+body {
+    margin: 0; /* Убираем отступы */
+    height: 100vh; /* Высота на 100% экрана */
+    background-image: url('../media/imgs.jpg');
+    background-size: cover; /* Заполняет весь экран */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Не повторяет изображение */
+    
+}
+
+.category {
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: rgb(21, 231, 101);
+    text-shadow: 2px 2px 4px rgba(255, 34, 0, 0.5); /* Добавление тени */
+}
+
+
+.catMain {
+    text-align: center; /* Выравнивание текста по центру */
+    font-family: "Bona Nova SC", serif;
+    font-weight: 700;
+    font-style: normal;
+    padding: 20px; /* добавим немного отступа */
+    border-radius: 5px; /* закругленные углы */
+    
+}
+
+.catMain a {
+    text-decoration: none; /* Убираем подчеркивание текста */
+    color: rgb(255, 255, 252);
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+.catMain{
+    font-size: 1em; /* Размер шрифта */
+    color: #5a5a5a; /* Цвет заголовка */
+    text-align: center; /* Текст по центру */
+}
+/*  CSS код для линии над заголовком */
+.catMain:before {
+    content: '';
+    display: block;
+    height: 1px; /* Высота линии */
+    background: #f000d8; /* Цвет линии */
+    width: 150px; /* Ширина линии до наведения */
+    margin: 0 auto 10px; /* Отступ с боков по центру и снизу */
+	transition: 1s; /* Время, за которое линия возвращается после наведения */
+}
+.catMain:hover:before {
+    width: 250px; /* Ширина линии при наведении */
+	transition: ease-out 1s; /* Время, за которое линия расширяется при наведении */
+}
+/*  CSS код для линии под заголовком */
+.catMain:after {
+    content: '';
+    display: block;
+    height: 1px; /* Высота линии */
+    background: #f000d8; /* Цвет линии */
+    width: 150px; /* Ширина линии до наведения */
+    margin: 10px auto 0; /* Отступ с боков по центру и сверху */
+	transition: 1s; /* Время, за которое линия возвращается после наведения */
+}
+.catMain:hover:after {
+    width: 250px; /* Ширина линии при наведении */
+	transition: ease-out 1s; /* Время, за которое линия расширяется при наведении */
+}
+
+.centered-column {
+    width: 500px; /* Задайте нужную ширину */
+    margin: 0 auto; /* Центрирование элемента */
+    text-align: center; /* Центрирование текста внутри элемента */
+}
+
+span {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    color: rgb(253, 252, 253);
+    font-size: 20px;
+}
+
+
+button a{
+    cursor: pointer; 
+    text-decoration: none;
+    color: #000;
+
+}
+
+.btn{
+    background-color: rgb(21, 231, 101);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}

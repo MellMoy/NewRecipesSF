@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import '../style/style.css';
 import Home from './Home.jsx';
 import Categories from './Categories.jsx';
 import NotFound from './NotFound.jsx';

@@ -29,17 +29,19 @@ function CategoryDetails() {
 
 	return (
 		<div>
-			<h1>Блюда из категории: {categoryType}</h1>
+			<h1 className='category'>{categoryType}</h1>
 			<ul>
 				{dishes.map(dish => (
-					<li key={dish.id}>
+					<div className='catMain'  key={dish.id}>
 						<Link to={`/recipe/${dish.id}`}>{dish.name}</Link>
-					</li>
+					</div>
 				))}
 			</ul>
-			<button>
-      <Link to="/categories">К категориям</Link>
-      </button>
+			<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '30vh' }}>
+  <button type="button" className="btn btn-info">
+    <Link to="/categories" style={{ color: 'inherit', textDecoration: 'none' }}>Перейти к категориям блюд</Link>
+  </button>
+</div>
 		</div>
 	);
 }

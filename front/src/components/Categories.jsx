@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
 function Category() {
   const category  = useParams().category;
   const [dishes, setDishes] = useState([]);
@@ -26,19 +27,21 @@ function Category() {
 
   return (
 		<div>
-			<h1>Категории на выбор</h1>
+			<h1 className='category'>Категории на выбор</h1>
 			<ul>
 				{dishes.map(dish => (
-					< li key={dish.id}>
+					< div className='catMain' key={dish.id}>
           <Link to={`/category/${dish.categoryType}`}>
 						{dish.categoryType}
 					</Link>
-          </li>
+          </div>
 				))}
 		</ul>
-    <button>
-      <Link to="/">Главная страница</Link>
-      </button>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '30vh' }}>
+  <button type="button" className="btn btn-info">
+    <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Главная страница</Link>
+  </button>
+</div>
     </div>
 	);
 };
