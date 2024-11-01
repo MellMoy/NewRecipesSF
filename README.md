@@ -66,7 +66,7 @@ API проекта будет доступно по адресам:
 Восстановить модули: `npm install`   
 Запуск СЕРВЕРА : `npm start`
 
-Ps : Первая console cd Recipes - python manage.py runserver / Вторая console cd frontend - npm start
+Ps : Первая console cd Recipes - python manage.py runserver / Вторая console cd front - npm start
                                   !!! НАСЛАЖДАЕМСЯ ПРОЕКТОМ !!!
 
 
