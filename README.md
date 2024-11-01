@@ -63,6 +63,8 @@ API проекта будет доступно по адресам:
 ## Установка и запуск среды разработки frontend React + Webpack
 
 Переходим : cd frontend
+Удаляем папку node_modules
+Обновляем Axios bash npm install axios@latest
 Восстановить модули: `npm install`   
 Запуск СЕРВЕРА : `npm start`
 
